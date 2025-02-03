@@ -1,4 +1,4 @@
-## Delivery 01 - $(Game Title)
+## Delivery 02 - $(Game Title)
 
 ![$(Game Title)](Screenshots/screenshot01.png "$(Game Title)")
 
@@ -15,9 +15,9 @@ $(Your Game Description)
 ### Controls
 
 Keyboard:
- - $(Game Control 01)
- - $(Game Control 02)
- - $(Game Control 03)
+ - WASD and Arrow Keys for player movement
+ - ENTER to start/restart game
+ - ESCAPE to exit game and close program
 
 ### Screenshots
 
@@ -25,15 +25,10 @@ _TODO: Show your game to the world, animated GIFs recommended!._
 
 ### Developers
 
- - $(Developer 01) - $(Role/Tasks Developed)
- - $(Developer 02) - $(Role/Tasks Developed)
- - $(Developer 03) - $(Role/Tasks Developed)
-
-### Links
-
- - YouTube Gameplay: $(YouTube Link)
- - itch.io Release: $(itch.io Game Page)
- - Steam Release: $(Steam Game Page)
+ - Nerea Carmona - $(Role/Tasks Developed)
+ - Iris Fernández - $(Role/Tasks Developed)
+ - Carla López - $(Role/Tasks Developed)
+ - Alexandre Masip - $(Role/Tasks Developed)
 
 ### License
 
