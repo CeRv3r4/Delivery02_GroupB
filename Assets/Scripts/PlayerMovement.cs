@@ -3,40 +3,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool IsMoving => _isMoving;
-
-    [SerializeField]
     private float Speed = 5.0f;
 
-    private bool _isMoving;
+    public float timeElapsed = 0f;
+    public float score = 0f;
+    public TextMeshProUGUI timeText; 
+    public TextMeshProUGUI scoreText;
+
     Rigidbody2D _rigidbody;
 
-    private int score = 2000;
+    private Vector3 lastPosition; 
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        lastPosition = transform.position;
+        score -= 2000;
+    }
+
+    public void Update()
+    {
+        timeElapsed += Time.deltaTime;
+
+        float distanceTravelled = Vector3.Distance(lastPosition, transform.position);
+        score += distanceTravelled; 
+
+        lastPosition = transform.position;
+
+        timeText.text = "Time: " + Mathf.Floor(timeElapsed).ToString(); 
+        scoreText.text = "Score: " + Mathf.Floor(score).ToString(); 
     }
 
     public void OnMove(InputValue value)
     {
-        // Read value from control, the type depends on what
-        // type of controls the action is bound to
         var inputVal = value.Get<Vector2>();
 
         Vector2 velocity = inputVal * Speed;
         _rigidbody.linearVelocity = velocity;
-
-        _isMoving = (velocity.magnitude > 0.01f);
-    }
-
-    public void OnSaveScore()
-    {
-        // Usage example on how to save score
-        PlayerPrefs.SetInt("Score", score);
-        score = PlayerPrefs.GetInt("Score");
     }
 }
