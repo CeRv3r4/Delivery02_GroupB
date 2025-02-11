@@ -31,24 +31,12 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody.linearVelocity = velocity;
 
         _isMoving = (velocity.magnitude > 0.01f);
-
-        if (_isMoving) LookAt((Vector2)transform.position + velocity);
-        else transform.rotation = Quaternion.identity;
     }
 
-    // NOTE: InputSystem: "SaveScore" action becomes "OnSaveScore" method
     public void OnSaveScore()
     {
         // Usage example on how to save score
         PlayerPrefs.SetInt("Score", score);
         score = PlayerPrefs.GetInt("Score");
-    }
-
-    private void LookAt(Vector2 targetPosition)
-    {
-        float angle = 0.0f;
-        Vector3 relative = transform.InverseTransformPoint(targetPosition);
-        angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
-        transform.Rotate(0, 0, -angle);
     }
 }

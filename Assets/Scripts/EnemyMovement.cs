@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -10,19 +11,18 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 2f;
     public float chaseSpeed = 3.5f;
     public float detectionRange = 5f;
+    public float visionAngle = 60f;
     public Transform player;
 
     private Vector3 target;
     private Vector3 lastKnownPlayerPosition;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         state = EnemyState.Patrolling;
         target = pointB.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (state)
@@ -44,24 +44,41 @@ public class EnemyMovement : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, pointA.position) < 0.1)
+        if (Vector3.Distance(transform.position, target) < 0.05f) 
         {
+            if (target == pointA.position)
+            {
+                target = pointB.position;
+            }
+            else
+            {
+                target = pointA.position;
+            }
+
             Flip();
-            target = pointB.position;
-        }
-        else if (Vector3.Distance(transform.position, pointB.position) < 0.1)
-        {
-            Flip();
-            target = pointA.position;
         }
     }
 
     private void DetectPlayer()
     {
-        if (Vector3.Distance(transform.position, player.position) < detectionRange)
+        Vector3 directionToPlayer = (player.position - transform.position).normalized; 
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer < detectionRange)
         {
-            lastKnownPlayerPosition = player.position;
-            state = EnemyState.Chasing;
+            float angleToPlayer = Vector3.Angle(transform.right, directionToPlayer); 
+
+            if (angleToPlayer < visionAngle / 2)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, detectionRange);
+
+                if (hit.collider != null && hit.collider.transform == player)
+                {
+                    lastKnownPlayerPosition = player.position;
+                    state = EnemyState.Chasing;
+                }
+
+            }
         }
     }
 
@@ -90,5 +107,16 @@ public class EnemyMovement : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Handles.color = new Color(1, 0, 0, 0.2f); 
+
+        Vector3 forward = transform.right;
+        Handles.DrawSolidArc(transform.position, Vector3.forward, Quaternion.Euler(0, 0, -visionAngle / 2) * forward, visionAngle, detectionRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
