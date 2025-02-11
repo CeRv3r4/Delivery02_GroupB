@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -107,6 +108,24 @@ public class EnemyMovement : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerMovement playerMovement = collision.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.SaveScoreAndLoadEnding();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.SaveScoreAndLoadEnding();
+        }
     }
 
     void OnDrawGizmosSelected()

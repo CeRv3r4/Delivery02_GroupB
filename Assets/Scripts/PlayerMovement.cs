@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -44,5 +45,12 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 velocity = inputVal * Speed;
         _rigidbody.linearVelocity = velocity;
+    }
+
+    public void SaveScoreAndLoadEnding()
+    {
+        PlayerPrefs.SetFloat("FinalScore", score); 
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("ending");
     }
 }
