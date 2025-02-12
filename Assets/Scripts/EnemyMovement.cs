@@ -1,5 +1,8 @@
+using JetBrains.Annotations;
+using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
@@ -18,10 +21,16 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 target;
     private Vector3 lastKnownPlayerPosition;
 
+    private AudioSource audioSource;
+    public AudioClip chase;
+
+    public event Action hit;
+
     void Start()
     {
         state = EnemyState.Patrolling;
         target = pointB.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -75,6 +84,7 @@ public class EnemyMovement : MonoBehaviour
 
                 if (hit.collider != null && hit.collider.transform == player)
                 {
+                    audioSource.PlayOneShot(chase);
                     lastKnownPlayerPosition = player.position;
                     state = EnemyState.Chasing;
                 }
@@ -99,29 +109,26 @@ public class EnemyMovement : MonoBehaviour
 
         if (Vector3.Distance(transform.position, lastKnownPlayerPosition) < 0.1f)
         {
+            hit?.Invoke();
             state = EnemyState.Patrolling;
         }
     }
 
-    /*private void Flip()
-    {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
-    }*/
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerMovement playerMovement = collision.GetComponent<PlayerMovement>();
+
         if (playerMovement != null)
         {
             playerMovement.SaveScoreAndLoadEnding();
+            
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
+
         if (playerMovement != null)
         {
             playerMovement.SaveScoreAndLoadEnding();

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Espetec02_0: -1271722339396126437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
