@@ -56,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
                 target = pointA.position;
             }
 
-            Flip();
+            transform.Rotate(0, 180, 0);
         }
     }
 
@@ -103,12 +103,12 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void Flip()
+    /*private void Flip()
     {
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
-    }
+    }*/
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -128,7 +128,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         Handles.color = new Color(1, 0, 0, 0.2f); 
 
