@@ -37,6 +37,4 @@ _TODO: Show your game to the world, animated GIFs recommended!._
 
 This game sources are licensed under MIT license. Check [LICENSE](LICENSE) for further details.
 
-$(Additional Licenses)
-
-*Copyright (c) $(Year) $(Developers Names)*
+Copyright (c) 2025 Nerea Carmona, Iris Fernández, Carla López and Alexandre Masip.
