@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerPrefs.SetFloat("FinalScore", score); 
         PlayerPrefs.Save();
+        PlayerPrefs.SetFloat("TotalTime", timeElapsed);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("ending");
     }
 }
