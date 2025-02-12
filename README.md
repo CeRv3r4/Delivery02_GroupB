@@ -1,6 +1,6 @@
 ## Delivery 02 - ESPETEC
 
-![$(Game Title)](Screenshots/screenshot01.png "$(Game Title)")
+![espetec](https://github.com/user-attachments/assets/8902d098-d400-43cc-90d2-9f7aabe19d58)
 
 ### Description
 
@@ -24,7 +24,7 @@ Keyboard:
 
 ### Screenshots
 
-_TODO: Show your game to the world, animated GIFs recommended!._
+![Espetec ‐ Hecho con Clipchamp](https://github.com/user-attachments/assets/b2460aa9-4121-4c40-be8c-5b8c4afaf8ba)
 
 ### Developers
 
