@@ -1,16 +1,19 @@
-## Delivery 02 - $(Game Title)
+## Delivery 02 - ESPETEC
 
 ![$(Game Title)](Screenshots/screenshot01.png "$(Game Title)")
 
 ### Description
 
-$(Your Game Description)
+Espetec is a top-down game where the player is an "Espetec Fuet" and has to run away from the knives that want to cut them in half, to escape you have to reach the door. 
+
+Try to escape and not to be seen, or you will be cut on the scene...
 
 ### Features
 
- - $(Game Feature 01)
- - $(Game Feature 02)
- - $(Game Feature 03)
+ - Fuet and Sink Animations
+ - Final Score Counter (Meters and Time)
+ - Pixel Art Aesthetic
+ - Sound Effects
 
 ### Controls
 
@@ -25,10 +28,10 @@ _TODO: Show your game to the world, animated GIFs recommended!._
 
 ### Developers
 
- - Nerea Carmona - $(Role/Tasks Developed)
- - Iris Fernández - $(Role/Tasks Developed)
- - Carla López - $(Role/Tasks Developed)
- - Alexandre Masip - $(Role/Tasks Developed)
+ - Nerea Carmona Vela - (Designer/Made the buttons of the main menu and game over)
+ - Iris Fernández Cervera - (Level Designer/Design the level)
+ - Carla López - (Artist/Visual Aesthetic and Assets)
+ - Alexandre Masip - (Programer/Scripts)
 
 ### License
 
