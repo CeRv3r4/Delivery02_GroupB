@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4553939c14cb18546b264b7909d693e7
+guid: 445345e786ced8b49aa99e9cb141da24
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 450444948985595564
-    second: Espetec_0
+      213: -7146351369750075017
+    second: Sink02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Espetec_0
+      name: Sink02_0
       rect:
         serializedVersion: 2
-        x: 101
-        y: 119
-        width: 182
-        height: 146
+        x: 137
+        y: 155
+        width: 116
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca6c7276b4d404600800000000000000
-      internalID: 450444948985595564
+      spriteID: 779abedca4f03dc90800000000000000
+      internalID: -7146351369750075017
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Espetec_0: 450444948985595564
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
