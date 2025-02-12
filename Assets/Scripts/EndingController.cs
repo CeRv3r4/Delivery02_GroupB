@@ -11,9 +11,9 @@ public class EndingController : MonoBehaviour
     void Start()
     {
         float finalScore = PlayerPrefs.GetFloat("FinalScore", 0); 
-        finalScoreText.text = "Total Distance: " + Mathf.Floor(finalScore).ToString();
+        finalScoreText.text = "Total Distance: " + Mathf.Floor(finalScore).ToString() + " metres";
         float totalTime = PlayerPrefs.GetFloat("TotalTime", 0);
-        totalTimeText.text = "Total Time: " + Mathf.Floor(totalTime).ToString();
+        totalTimeText.text = "Total Time: " + Mathf.Floor(totalTime).ToString()+ " seconds";
     }
    
     private void Update()
